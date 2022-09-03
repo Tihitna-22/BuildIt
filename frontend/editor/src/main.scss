@@ -1,0 +1,267 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+
+:root {
+    --primary-color-white: white;
+    --primary-color-light-blue: #599191;
+    --text-color: whitesmoke;
+    --icon-color: whitesmoke;
+    --icon-color-hover: #11dbff;
+    --border-color: var(--icon-color-hover);
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Acme', sans-serif;
+}
+
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* sidenav */
+.list-group {
+    --bs-list-group-border-top-color: var(--border-color);
+    --bs-list-group-border-radius: none;
+    --bs-list-group-bg: var(--primary-color-light-blue);
+    .pages {
+        border-top: var(--border-color);
+    }
+}
+
+
+
+
+
+.Dashboard {
+    ::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+.sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5%;
+    height: 100vh;    
+    background-color: var(--primary-color-light-blue);
+    transition: 0.5s;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    border-right: 1px solid inherit;
+
+    .logo {
+        border-bottom: 1px solid var(--border-color);
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .pages {
+        height: 100px;
+        width: 100%;
+        padding-top: 0px;
+        border: none;
+        background-color: var(--primary-color-light-blue);
+        
+
+    }
+}
+.pages {
+    background-color: var(--primary-color-light-blue);
+
+}
+.logo-text {
+    color: var(--primary-color-white);
+}
+
+.main-content {
+    position: relative;
+    width: 95%;
+    left: 5%;
+
+    .navbar {
+        padding: 0;
+
+        .container-fluid {
+            padding: 0;
+        }
+    }
+}
+
+.Home {
+    .container {
+        padding: 60px;
+    }
+}
+
+.tab-content {
+    display: contents;
+}
+
+#block {
+    height: 100%;
+
+    #blocks {
+        height: 100%;
+    }
+}
+
+.Links {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: var(--primary-color-white);
+
+}
+
+.Links .Linkstext {
+    visibility: hidden;
+    width: 120px;
+    height: 25px;
+    color: var(--primary-color-white);
+    text-align: center;
+    border-radius: 25%;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 70%;
+    left: 50%;
+    margin-left: -60px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.Links .Linkstext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    text-align: center;
+    margin-left: -5px;
+   
+}
+
+
+.Links:hover {
+    color: var(--icon-color-hover);
+
+    .Linkstext {
+        visibility: visible;
+        color: var(--icon-color-hover);
+    }
+}
+
+.Links .Linkstext {
+    visibility: visible;
+}
+
+.fa-home {
+    margin: auto;
+    display: block;
+    width: 50%;
+
+
+}
+
+
+.btn {
+    .fa {
+        color: var(--primary-color-white);
+
+    }
+
+    &:hover {
+        .fa {
+            color: var(--primary-color-white);
+
+
+        }
+    }
+}
+
+.btn-sm {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+
+
+/** Error **/
+.error {
+    .bg-body {
+        min-height: 150px;
+        max-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            font-weight: 600;
+        }
+    }
+
+    .btn {
+        border-radius: 40px !important;
+        padding: 15px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        min-width: 150px;
+    }
+}
+
+.gjs-one-bg {
+    background-color: var(--primary-color-light-blue);
+
+}
+
+.gjs-block-categories {
+    background-color: var(--primary-color-light-blue);
+}
+
+.gjs-title {
+    color: var(--primary-color-white);
+
+    .gjs-sm-sector-title {
+        background-color: var(--primary-color-light-blue);
+    }
+}
+
+.gjs-category-title,
+.gjs-layer-title,
+.gjs-block-category .gjs-title,
+.gjs-sm-sector-title {
+    background-color: var(--primary-color-light-blue);
+}
+
+.gjs-two-color {
+    color: var(--primary-color-white);
+}
+
+.gjs-three-bg {
+    background: var(--primary-color-white);
+    color: var(--primary-color-light-blue);
+}
+
+.gjs-four-color,
+.gjs-four-color-h:hover {
+    color: var(--icon-color-hover);
+}
+
+.gjs-pn-btn:hover {
+    color: var(--icon-color-hover);
+}
+.gjs-pn-btn.gjs-pn-active {
+    background-color: var(--primary-color-light-blue);
+    color: var(--primary-color-white);
+    box-shadow: 0 0.1rem 0.3rem black;
+
+}
