@@ -1,6 +1,6 @@
 import React from 'react';
 import EditorConfig from './EditorConfig';
-import '../main.scss';
+import '../main.css';
 import Dashboard from './Dashboard';
 
 

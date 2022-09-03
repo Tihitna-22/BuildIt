@@ -1,0 +1,34 @@
+:root {
+  --primary-color-white: white;
+  --primary-bg-color-light-blue: #599191;
+  --text-color: whitesmoke;
+  --icon-color: whitesmoke;
+  --icon-color-hover: #11dbff;
+  --border-color: var(--icon-color-hover);
+}
+
+.Login {
+  background-color: var(--primary-bg-color-light-blue);
+}
+
+.login-container {
+  height: 100vh;
+  padding-top: 25vh;
+  color: var(--text-color);
+}
+.login-container .container {
+  display: block;
+  width: 50%;
+  padding: 60px;
+  border: 1px solid var(--border-color);
+  background-color: var(--primary-bg-color-light-blue);
+}
+
+.form input {
+  padding-left: 20px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: inherit;
+  border: 1px solid var(--border-color);
+}/*# sourceMappingURL=Login.css.map */

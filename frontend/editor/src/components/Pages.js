@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Dashboard from './Dashboard';
-import '../main.scss';
+import '../main.css';
 
 const Pages = () => {
     const [name, setName] = useState("");
