@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
+    <script src="//unpkg.com/grapesjs"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+
+        .parent_builder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #blocks {
+            width: 15%;
+        }
+
+        #styleElements {
+            width: 20%;
+        }
+
+        #gjs {
+            border: 3px solid #444;
+
+        }
+
+        .panel__switcher {
+            position: initial;
+        }
+
+        .panel__devices {
+            position: initial;
+        }
+
+        /* Reset some default styling */
+        .gjs-cv-canvas {
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .panel__top {
+            padding: 0;
+            width: 100%;
+            display: flex;
+            position: initial;
+            justify-content: center;
+            justify-content: space-between;
+        }
+
+        .panel__basic-actions {
+            position: initial;
+        }
+
+        .editor-row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            height: 300px;
+        }
+
+        .editor-canvas {
+            flex-grow: 1;
+        }
+
+        .panel__right {
+            flex-basis: 230px;
+            position: relative;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>

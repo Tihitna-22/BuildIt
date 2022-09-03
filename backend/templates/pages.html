@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  ```
+-->
+<div class="bg-gray-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+      <div class="flex justify-between">
+        <h2 class="text-2xl font-bold text-gray-900">My Pages</h2>
+
+
+
+        <a href="/add">
+          <button
+            class="bg-neutral-200 px-12 py-4 text-2xl rounded-xl border-neutral-400 border-2 text-neutral-600 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+            Add new
+          </button>
+        </a>
+      </div>
+
+
+      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+
+        {% if pages %}
+        {% for page in pages %}
+        <div class="group relative mb-8">
+
+          <div
+            class="relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+            {{ page.html | safe }}
+          </div>
+          <div class="flex justify-between">
+            <div>
+              <h3 class="mt-6 text-sm text-gray-500">
+
+
+                <a href="/edit/{{page.id}}">
+
+                  {{ page.name }}
+                </a>
+              </h3>
+              <p class="text-base font-semibold text-gray-900">{{ page.description }}</p>
+            </div>
+            <a href="/preview/{{ page.id }}">
+              <button
+                class="bg-neutral-200 px-12 py-4 text-2xl rounded-xl border-neutral-400 border-2 text-neutral-600 hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+                Preview
+              </button>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock%}
