@@ -1,81 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { data } from 'autoprefixer'
+// import 
 
 function TemplateCard() {
+
+    const [temp, setTemp] = useState([])
+    const [csst, setCsst] = useState('')
+    // const [pageid, setPageid] = useState('')
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/pages/').then((response) => {
+            const res = response.data
+            console.log(res)
+            setTemp(res)
+            return res
+            // const css = response.data
+            // setCsst(css)
+
+            // const temp = `${html}<style>${css}</style>`
+
+        })
+    }, [])
+    // <div dangerouslySetInnerHTML={{ __html: item.html }} />
+    //
+
+
     return (
         <>
-            <section className="mt-2 templates">
-                <div>
-                    <div className="container py-5">
-                        <h4 className="text-center mb-5"><strong>Portfolio Templates</strong></h4>
+            <div className="bg-white">
+                <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <h2 className="sr-only">items</h2>
 
-                        <div className="row">
-                            <div className="col-lg-6 col-md-12 mb-4 card-temp">
-                                <div className="bg-image hover-zoom ripple shadow-1-strong rounded">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/new/img(1).webp"
-                                        className="w-100" alt=''></img>
-                                    <div >
-                                        <div className="prev">
-                                            <div className="mask" style={{ backgroundCcolor: 'rgba(0, 0, 0, 0.3)' }}>
-                                                <div className="d-flex justify-content-start align-items-end h-100">
-                                                    <Link className="card-button" to="/">preview</Link>
-                                                </div>
-                                            </div>
-                                            <div className="mask" style={{ backgrounCcolor: 'rgba(0, 0, 0, 0.3)' }}>
-                                                <div className="d-flex justify-content-end align-items-end h-100">
-                                                    <Link className="card-button" to="/">Edit</Link>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="hover-overlay">
-                                            <div className="mask" style={{ backgroundColor: 'rgba(253, 253, 253, 0.15)' }}></div>
-                                        </div>
-                                    </div>
+                    <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                        {temp.map((item) => (
+                            <a key={item.id} href={item.href} className="group">
+                                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                                    <div dangerouslySetInnerHTML={{ __html: item.html }} />
                                 </div>
-                            </div>
-                        </div>
+                                <div className='flex justify-between'>
+                                    <Link to={`/preview/${item.id}`} >   <button type="button" className="inline-block px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">preview</button></Link>
 
-
-                    </div>
-                    <div className="container py-5">
-                        <h4 className="text-center mb-5"><strong>Landing Page Templates</strong></h4>
-
-                        <div className="row">
-                            <div className="col-lg-6 col-md-12 mb-4 card-temp">
-                                <div className="bg-image hover-zoom ripple shadow-1-strong rounded">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/new/img(1).webp"
-                                        className="w-100" alt=''></img>
-                                    <div>
-                                        <div className="prev">
-                                            <div className="mask" style={{ backgrounCcolor: 'rgba(0, 0, 0, 0.3)' }}>
-                                                <div className="d-flex justify-content-start align-items-end h-100">
-                                                    <Link className="card-button" to="/">preview</Link>
-                                                </div>
-                                            </div>
-                                            <div className="mask" style={{ backgrounCcolor: 'rgba(0, 0, 0, 0.3)' }}>
-                                                <div className="d-flex justify-content-end align-items-end h-100">
-                                                    <Link className="card-button" to="/editor">Edit</Link>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="hover-overlay">
-                                            <div className="mask" style={{ backgroundColor: 'rgba(253, 253, 253, 0.15)' }}>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Link to={`/editor/${item.id}`} > <button type="button" className="inline-block px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out hover:text-white hover:shadow-[inset_13rem_0_0_0] hover:shadow-blue-400 duration-[400ms,700ms] transition-[color,box-shadow]">edit</button></Link>
                                 </div>
-                            </div>
 
 
-                        </div>
 
+                                {/* <p className="mt-1 text-lg font-medium text-gray-900">{item.price}</p> */}
+                            </a>
+                        ))}
                     </div>
                 </div>
-
-
-            </section >
+            </div>
         </>
     )
 }

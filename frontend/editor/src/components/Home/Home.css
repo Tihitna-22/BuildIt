@@ -427,13 +427,13 @@ font-size: 1.5rem;
     display: flex;
     justify-content: center;
  }
- .prev{
+ /* .prev{
     display: none;
  }
 .card-temp:hover .prev{
     display: block;
     
-}
+} */
 .templates h4{
     color: black;
 }
