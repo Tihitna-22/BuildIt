@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Footer from '../Home/Footer/Footer'
 import Nav from '../Home/Nav/Nav'
 import TemplateCard from './TemplateCard'
-// import Ttcard from './Ttcard'
 
 function Template() {
     return (

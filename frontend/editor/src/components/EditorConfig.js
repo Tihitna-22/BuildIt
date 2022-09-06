@@ -2,76 +2,53 @@ import { useEffect, useState, useRef } from 'react';
 import grapesjs from 'grapesjs';
 import gjsPresetWebpage from 'grapesjs-preset-webpage';
 import 'bootstrap';
+import axios from 'axios';
+import { useParams } from 'react-router-dom'
+
+function EditorConfig({ editor }) {
+
+    // const { id } = useParams()
+    // const [temp, setTemp] = useState([])
+    // console.log()    // const [editor, setEditor] = useState(null)
 
 
-function EditorConfig() {
-    const [editor, setEditor] = useState(null);
 
-    useEffect(() => {
-        const editor = grapesjs.init({
-            container: "#editor",
-            fromElement: true,
-            width: "auto",
-            storageManager: false,
-            plugins: [gjsPresetWebpage],
-            pluginsOpts: {
-                gjsPresetWebpage: {},
-            },
-            canvas: {
-                scripts: [
-                    "https://cdn.tailwindcss.com"
-                ],
-                // components: [
-                //     '<h1 class="testh">Title frame</h1>',
-                //     '<p class="testp">Paragraph frame</p>',
-                // ],
-                // styles: `
-                //     .testh { color: red; }
-                //     .testp { color: blue; }
-                //   `,
-            },
-            panels: {
-                defaults: [
-                    {
-                        id: "basic-actions",
-                        el: ".panel__basic-actions",
-                        buttons: [
+    // useEffect(() => {
+    // axios.get(`http://localhost:8000/page-detail/${id}/`).then((response) => {
+    //     const html = response.data.html
+    //     const css = response.data.css
+    //     const temp = `${html}<style>${css}</style>`
+    //     // setTemp(temp)
+    //     editor.addComponents(`<div>
+    //     ${temp}
+    //   </div>`);
+    // })
 
-                            {
-                                id: "save",
-                                className: "fa fa-paper-plane",
-                                command: "save",
-                            },
-                        ]
-                    }]
-            }
 
-        })
-        // const apend = document.getElementsById("iatj")
-        // console.log(apend)
+    // const editor = grapesjs.init({
+    //     container: "#editor",
+    //     fromElement: true,
+    //     width: "auto",
+    //     storageManager: false,
+    //     plugins: [gjsPresetWebpage],
+    //     pluginsOpts: {
+    //         gjsPresetWebpage: {},
+    //     },
+    //     canvas: {
+    //         scripts: [
+    //             "https://cdn.tailwindcss.com"
+    //         ]
+    //     },
+    // })
+    // setEditor(editor)
 
-        setEditor(editor);
-        // apend()
-
-        // const canvas = editor.Canvas;
-        // canvas.addFrame({
-        //     name: 'Mobile home page',
-        //     x: 100, // Position in canvas
-        //     y: 100,
-        //     width: 500, // Frame dimensions
-        //     height: 600,
-        //     // device: 'DEVICE-ID',
-        //     components: [
-        //         '<h1 class="testh">Title frame</h1>',
-        //         '<p class="testp">Paragraph frame</p>',
-        //     ],
-        //     styles: `
-        //       .testh { color: red; }
-        //       .testp { color: blue; }
-        //     `,
-        // });
-
-    }, []);
+    // }, [])
+    return (
+        <div className='main-content'>
+            <div id='editor'>
+            </div>
+        </div>
+    )
 
 }
 

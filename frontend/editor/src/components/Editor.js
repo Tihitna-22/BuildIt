@@ -1,51 +1,74 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import EditorConfig from './EditorConfig';
 import '../main.css';
 import Dashboard from './Dashboard';
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-// import { useParams } from 'react-router-dom';
-
-
-
-
+import grapesjs from 'grapesjs';
+import gjsPresetWebpage from 'grapesjs-preset-webpage';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+// useParams
 
 function Editor() {
     const { id } = useParams()
-    const [temp, setTemp] = useState([])
-    // const [id, setCsst] = useState('')
-    // const { id } = useParams()
-    // console.log(id)
+    // const [temp, setTemp] = useState([])
+    const [editor, setEditor] = useState(null)
+    const [htmlUpdate, sethtmlUpdate] = useState(null)
+    const [cssUpdate, setcssUpdate] = useState(null)
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/pages/${id}/`).then((response) => {
+        axios.get(`http://localhost:8000/page-detail/${id}/`).then((response) => {
             const html = response.data.html
-            // console.log(res)
-            // return res
             const css = response.data.css
-            const template = `${html}<style>${css}</style>`
-            setTemp(template)
-            console.log(template)
-            // setCsst(css)
+            const temp = `${html}<style>${css}</style>`
+            // setTemp(temp)
+            editor.addComponents(`<div>
+            ${temp}
+          </div>`);
+
+            // const htmlUpdate = editor.getHtml()
+            // sethtmlUpdate(htmlUpdate)
         })
-    }, [id])
+        // axios.post(`http://localhost:8000/page-update/${id}/`).then((response) => {
+        // const html = response.data.html
+        // const css = response.data.css
+        // const temp = `${html}<style>${css}</style>`
+        // setTemp(temp)
+        //     editor.addComponents(`<div>
+        //     ${temp}
+        //   </div>`);
+
+        //     const htmlUpdate = editor.getHtml()
+        //     const cssUpdate = editor.getCss()
+        //     sethtmlUpdate(htmlUpdate)
+        //     setcssUpdate(cssUpdate)
+        // })
+
+        const editor = grapesjs.init({
+            container: "#editor",
+            fromElement: true,
+            width: "auto",
+            storageManager: false,
+            plugins: [gjsPresetWebpage],
+            pluginsOpts: {
+                gjsPresetWebpage: {},
+            },
+            canvas: {
+                scripts: [
+                    "https://cdn.tailwindcss.com"
+                ]
+            },
+        })
+        setEditor(editor)
 
 
-    EditorConfig();
-    // apend()
+    }, [])
+
     return (
         <div className='App' >
 
-            <Dashboard />
-            <div className='main-content'>
-                <div id='editor'>
-                    <div>
-                        <h1>{id}</h1>
-                        <div dangerouslySetInnerHTML={{ __html: temp }} />
-                    </div>
-                </div>
-            </div>
+            <Dashboard editor={htmlUpdate} />
+            <EditorConfig />
         </div>
     );
 }
