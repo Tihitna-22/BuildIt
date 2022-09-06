@@ -13,6 +13,7 @@
     "bootstrap-sass": "^3.3.7",
     "grapesjs": "^0.19.5",
     "grapesjs-blocks-basic": "^0.1.8",
+    "grapesjs-blocks-bootstrap4": "^0.2.3",
     "grapesjs-preset-webpage": "^0.1.11",
     "popper.js": "^1.16.1",
     "react": "^18.2.0",

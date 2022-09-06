@@ -1,5 +1,5 @@
 import React from 'react';
-import Editor from './components/Editor';
+// import Editor from './components/Editor';
 import Home from './components/Home/Home';
 import Pages from './components/Pages';
 import Pagestemp from './components/Pages/Pagestemp'
@@ -8,6 +8,7 @@ import Login from './components/Login';
 import './components/Home/Home'
 import Template from './components/Template/Template';
 import Preview from './components/Template/Preview';
+import EditorConfig from './components/EditorConfig';
 // import Editonly from './components/Editonly';
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/template' element={<Template />} />
-        <Route path='/editor/:id' element={<Editor />} />
+        <Route path='/editor/:id' element={<EditorConfig />} />
+        <Route path='/template/editor' element={<EditorConfig />} />
         <Route path='/pages' element={<Pagestemp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/preview/:id' element={<Preview />} />

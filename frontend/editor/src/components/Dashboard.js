@@ -2,11 +2,49 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaCode, FaBookOpen, FaBook, FaSave } from 'react-icons/fa';
 import '../main.scss';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import grapesjs from 'grapesjs';
 
 
-function Dashboard({ editor }) {
 
-    console.log(editor)
+function Dashboard() {
+
+
+    const { id } = useParams()
+    const [edi, setEdi] = useState(null)
+    const [saveContent, setSaveContent] = useState(null)
+
+
+
+
+    useEffect(() => {
+
+        const editor = grapesjs.init({
+            container: "#editor",
+
+            storageManager: {
+                type: 'remote',
+                autosave: true, // Store data automatically
+                urlStore: `http://localhost:8000/page-update/${id}`
+            }
+        })
+        editor.Panels.addButton
+            ('options',
+                [{
+                    id: 'save-db',
+                    className: 'fa fa-floppy-o',
+                    command: 'save-db',
+                    attributes: { title: 'Save DB' }
+                }]
+            );
+
+        setEdi(editor)
+
+
+    }, [])
+
+    // console.log(editor)
 
     return (
         <div className='Dashboard'>
@@ -31,7 +69,7 @@ function Dashboard({ editor }) {
                                 <span className='Linkstext'><b>Publish</b></span>
                             </Link></li>
                         <li className='list-group-item d-flex justify-content-between align-items-center'>
-                            <button className='Links' ><FaSave />
+                            <button className='Links' onClick={saveContent}><FaSave />
                                 <span className='Linkstext'><b>Save</b></span>
                             </button></li>
                     </ul>

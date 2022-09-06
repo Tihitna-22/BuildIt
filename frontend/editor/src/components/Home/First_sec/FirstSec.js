@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 function FirstSec() {
     return (
         <>
-            <section>
-                <div className="container-fluid banner px-5">
+
+            <section className='pt-3'>
+                <div className="container-fluid banner px-5 mt-5 pt-20">
                     <div className="row justify-content-between ">
                         <div className="col-sm-12 col-md-6 banner_first d-flex aligns-items-center justify-contents-center ">
                             {/* <!-- <div className="slider ">
@@ -14,7 +15,7 @@ function FirstSec() {
 
 
                         </div>
-                        <div className="col-sm-12 col-md-6 banner_sec">
+                        <div className="col-sm-12 col-md-6 banner_sec mt-5">
                             <div className="moto">
                                 <span>Build your online presence here!</span>
                             </div>
