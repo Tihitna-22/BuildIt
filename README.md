@@ -170,7 +170,7 @@ If you have any feedback (ex: feature ideas) or would like to contribute to this
 ## The Team
 We are three dog enthusiasts who are passionate about coding but also like to keep it fun!
 
-* **Natnael Girma** [@Natnael](https://) - Backend Development
-* **Kimae Ngowa ** [@Kimae](https://) - Frontend Development 
-* **Tihitina Sisay** [@Tihitina]() - Frontend Development 
-* **Abdisa Gemechu** [@Abdisa](https://linkedin/abdisa-gemechu) - Backend Development
+* **Natnael Girma** [@Natnael](https://) - Backend Developer
+* **Kimae Ngowa** [@Kimae](https://) - Frontend Developer 
+* **Tihitina Sisay** [@Tihitina]() - Frontend Developer
+* **Abdisa Gemechu** [@Abdisa](https://linkedin/abdisa-gemechu) - Backend Developer
