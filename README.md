@@ -155,7 +155,7 @@ We built an API using Django-Rest framework where the front end can access the b
      
 ## Future
 
-Beyond this initial MVP which was built in 2 weeks, I would like to continue to add many more features to BuildIt website. In particular, I would like to include an automated deployment feature to it, where the user can deploy the website  he/she created by just clicking on it. In addition we are considering to add a payment integration system to the website. 
+Beyond this initial MVP which was built in 2 weeks, we would like to continue to add many more features to BuildIt website. In particular, we would like to include an automated deployment feature to it, where the user can deploy the website  he/she created by just clicking on it. In addition we are considering to add a payment integration system to the website. 
 
 If you have any feedback (ex: feature ideas) or would like to contribute to this project, please feel free to contact us.
 
